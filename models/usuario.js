@@ -18,6 +18,10 @@ const UsuarioSchema = Schema({
         type: Boolean,
         default: false,
     },
+    token: {
+        type: String,
+        required: true,
+    },
 });
 UsuarioSchema.method('toJSON', function() {
     const { __v, _id, password, ...object } = this.toObject();

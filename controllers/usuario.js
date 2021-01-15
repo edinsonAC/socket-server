@@ -24,11 +24,34 @@ const getUsuarios = async(req, res = response) => {
             msg: 'Hable con el admin'
         })
     }
+}
 
+const updateUser = async(req, res = response) => {
+    try {
+        let id = req.params.id
+        const usuario = new Usuario(req.body)
+        let resp = await Usuario.findOneAndUpdate({ _id: id }, { token: req.body.token })
+        if (!resp) {
+            res.status(404).json({
+                ok: false,
+                msg: 'Usuario no encontrado'
+            })
+        }
 
-
+        return res.json({
+            ok: true,
+            resp
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el admin'
+        })
+    }
 }
 
 module.exports = {
-    getUsuarios
+    getUsuarios,
+    updateUser
 }
