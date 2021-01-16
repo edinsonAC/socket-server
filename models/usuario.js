@@ -20,7 +20,8 @@ const UsuarioSchema = Schema({
     },
     token: {
         type: String,
-        required: true,
+        required: false,
+        default: ""
     },
 });
 UsuarioSchema.method('toJSON', function() {

@@ -29,6 +29,7 @@ const crearUsuario = async(req, res = response) => {
             token
         })
     } catch (error) {
+        console.log(error);
         res.status(500).json({
             ok: false,
             msg: 'Hable con el admin'
