@@ -35,8 +35,13 @@ const guardarMensaje = async(payload) => {
                 "mensaje": payload.mensaje
             }
         }
-        axios.defaults.headers.common['Authorization'] = process.env.TOKEN_KEY;
-        await axios.post('/user', body);
+
+        let res = await axios.post('https://fcm.googleapis.com/fcm/send', body, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": process.env.TOKEN_KEY
+            }
+        });
         return true
     } catch (error) {
         return false;
