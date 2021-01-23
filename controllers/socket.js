@@ -27,7 +27,8 @@ const guardarMensaje = async(payload) => {
             "to": usuario.token,
             "notification": {
                 "title": usuarioDe.nombre,
-                "body": payload.mensaje
+                "body": payload.mensaje,
+                "image": 'https://scontent.fbga2-1.fna.fbcdn.net/v/t1.0-9/83173438_2668462746524103_230961711723577344_n.jpg?_nc_cat=110&ccb=2&_nc_sid=09cbfe&_nc_ohc=yJJ45ct34O8AX-rQ4lu&_nc_ht=scontent.fbga2-1.fna&oh=e4f25252dc7f93bf6ed8f87d332f0283&oe=60341420'
             },
             "data": {
                 "us": usuario,
